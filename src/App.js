@@ -1,13 +1,6 @@
 import './App.scss';
-import './components/Tab/Tab.css';
 import React from "react"
-import {BottomSheet} from "./components";
 
-/**
- * Root Component (EntryPoint)
- * @returns {JSX.Element}
- * @constructor
- */
 function App() {
   // const mapElement = useRef(null);
   //
@@ -38,9 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      <BottomSheet />
+
     </div>
-  );
+  )
 }
 
 export default App;
