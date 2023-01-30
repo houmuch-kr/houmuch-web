@@ -1,6 +1,7 @@
 import './App.scss';
 import './components/Tab/Tab.css';
 import React from "react"
+import {BottomSheet} from "./components";
 
 /**
  * Root Component (EntryPoint)
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <BottomSheet />
     </div>
   );
 }
