@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import './components/Tab/Tab.css';
 import React from "react"
 
