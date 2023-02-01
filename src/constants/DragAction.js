@@ -1,5 +1,6 @@
 export const DragAction = {
   IDLE: "IDLE",
   UP: "UP",
-  DOWN: "DOWN"
+  DOWN: "DOWN",
+  HOLDING: "HOLDING",
 }

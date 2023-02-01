@@ -56,14 +56,11 @@ const BottomSheet = ({ children }) => {
   const [ action, dragHeight ] = useTouch({ ref })
 
   useEffect(() => {
-    if (action === DragAction.IDLE) {
-      return
-    }
     if (action === DragAction.UP) {
       if (mode === BottomSheetMode.SIMPLE) {
         setMode(BottomSheetMode.DETAIL)
       }
-    } else {
+    } else if (action === DragAction.DOWN) {
       if (mode === BottomSheetMode.SIMPLE) {
         setMode(BottomSheetMode.HIDE)
       } else if (mode === BottomSheetMode.DETAIL) {

@@ -10,6 +10,7 @@ const useTouch = ({ ref }) => {
     if (ref) {
       ref.current.ontouchstart = e => {
         const { clientY } = e.changedTouches[0]
+        setAction(DragAction.HOLDING)
         setDragStartPoint(clientY)
       }
       ref.current.ontouchend = e => {
