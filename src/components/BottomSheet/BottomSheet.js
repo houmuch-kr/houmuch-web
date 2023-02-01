@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { useTouch } from "../../hooks/state";
+import { DragAction } from "../../constants";
 
 const Style = styled.div`
   position: absolute;
@@ -7,28 +9,83 @@ const Style = styled.div`
   right: 0;
   bottom: 0;
   background: white;
-  border: 1px solid black;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   border-bottom: 0;
-  transition: all .5s ease;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  transition: all .3s ease;
   height: ${({ height }) => height ? height : '0px'};
+`
+
+const Holder = styled.span`
+  width: 100%;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const HolderButton = styled.span`
+  background-color: black;
+  height: 6px;
+  width: 50px;
+  border-radius: 20px;
 `
 
 const height = {
   HIDE: 0,
-  SIMPLE: '100px',
-  DETAIL: '90vh'
+  SIMPLE: '120px',
+  DETAIL: '95vh'
 }
 
-/**
- * @param mode (HIDE, SIMPLE, DETAIL) 표시 정도에 따라 구분
- * @returns {JSX.Element}
- * @constructor
- */
-const BottomSheet = () => {
-  const [ mode, setMode ] = useState("SIMPLE")
-  return (
-    <Style height={height[mode]}>
+const Content = styled.section`
+`
 
+const BottomSheetMode = {
+  HIDE: "HIDE",
+  SIMPLE: "SIMPLE",
+  DETAIL: "DETAIL"
+}
+
+const BottomSheet = ({ children }) => {
+  const [ mode, setMode ] = useState(BottomSheetMode.SIMPLE)
+  const ref = useRef()
+  const [ action, dragHeight ] = useTouch({ ref })
+
+  useEffect(() => {
+    if (action === DragAction.IDLE) {
+      return
+    }
+    if (action === DragAction.UP) {
+      if (mode === BottomSheetMode.SIMPLE) {
+        setMode(BottomSheetMode.DETAIL)
+      }
+    } else {
+      if (mode === BottomSheetMode.SIMPLE) {
+        setMode(BottomSheetMode.HIDE)
+      } else if (mode === BottomSheetMode.DETAIL) {
+        if (dragHeight < -200) {
+          setMode(BottomSheetMode.HIDE)
+        } else {
+          setMode(BottomSheetMode.SIMPLE)
+        }
+      }
+    }
+  }, [ action ])
+
+  return (
+    <Style
+      ref={ref}
+      height={height[mode]}>
+      <Holder>
+        <HolderButton />
+      </Holder>
+      <Content>
+        { children }
+      </Content>
     </Style>
   )
 }
