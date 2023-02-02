@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { useTouch } from "../../hooks/state";
-import { DragAction } from "../../constants";
+import { useTouch } from "~/hooks/state";
+import { DragAction } from "~/constants";
 
 const Style = styled.div`
   position: absolute;
