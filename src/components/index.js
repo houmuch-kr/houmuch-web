@@ -1,1 +1,2 @@
-export { default as BottomSheet } from "./BottomSheet/BottomSheet"
+export * from "./BottomSheet"
+export { default as PageTemplate } from "./PageTemplate/PageTemplate"

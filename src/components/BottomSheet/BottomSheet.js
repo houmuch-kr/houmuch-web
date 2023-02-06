@@ -7,7 +7,7 @@ const Style = styled.div`
   position: absolute;
   width: 100vw;
   right: 0;
-  bottom: 0;
+  bottom: ${({ height }) => height === 0 ? `-100px` : 0};
   background: white;
   border: 2px solid black;
   box-sizing: border-box;
@@ -37,23 +37,27 @@ const HolderButton = styled.span`
 
 const height = {
   HIDE: 0,
-  SIMPLE: '120px',
+  SIMPLE: '130px',
   DETAIL: '95vh'
 }
 
 const Content = styled.section`
 `
 
-const BottomSheetMode = {
+export const BottomSheetMode = {
   HIDE: "HIDE",
   SIMPLE: "SIMPLE",
   DETAIL: "DETAIL"
 }
 
-const BottomSheet = ({ children }) => {
+const BottomSheet = ({ children, onModeChange }) => {
   const [ mode, setMode ] = useState(BottomSheetMode.SIMPLE)
   const ref = useRef()
   const [ action, dragHeight ] = useTouch({ ref })
+
+  useEffect(() => {
+    onModeChange && onModeChange(mode)
+  }, [ mode ])
 
   useEffect(() => {
     if (action === DragAction.UP) {
