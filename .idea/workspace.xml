@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="611fc69b-3ad1-4f13-b6d8-b08111a7dac5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/BottomSheet/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageTemplate/PageTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/sheets/ContractDetailBottomSheet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +39,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="feature/detail" />
-                    <option name="lastUsedInstant" value="1675311640" />
+                    <option name="lastUsedInstant" value="1675311943" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
-                    <option name="lastUsedInstant" value="1675310932" />
+                    <option name="lastUsedInstant" value="1675067818" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />

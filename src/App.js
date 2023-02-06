@@ -1,6 +1,6 @@
 import './App.scss';
 import React from "react"
-import { BottomSheet } from "./components";
+import Main from "./pages/Main";
 
 function App() {
   // const mapElement = useRef(null);
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <BottomSheet />
+      <Main />
     </div>
   )
 }
