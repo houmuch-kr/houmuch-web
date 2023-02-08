@@ -51,8 +51,8 @@ export const BottomSheetMode = {
 }
 
 const BottomSheet = ({ children, onModeChange }) => {
-  const [ mode, setMode ] = useState(BottomSheetMode.SIMPLE)
   const ref = useRef()
+  const [ mode, setMode ] = useState(BottomSheetMode.DETAIL)
   const [ action, dragHeight ] = useTouch({ ref })
 
   useEffect(() => {
@@ -79,9 +79,8 @@ const BottomSheet = ({ children, onModeChange }) => {
 
   return (
     <Style
-      ref={ref}
       height={height[mode]}>
-      <Holder>
+      <Holder ref={ref}>
         <HolderButton />
       </Holder>
       <Content>

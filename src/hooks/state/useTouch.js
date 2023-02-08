@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DragAction } from "../../constants";
+import { DragAction } from "~/constants";
 
 const useTouch = ({ ref }) => {
   const [ dragStartPoint, setDragStartPoint ] = useState()
@@ -7,6 +7,9 @@ const useTouch = ({ ref }) => {
   const [ action, setAction ] = useState(DragAction.IDLE)
 
   const handleTouchEnd = e => {
+    if (e.target !== ref.current) {
+      return
+    }
     const { clientY } = e.changedTouches[0]
     const height = dragStartPoint - clientY
     if (height > 0) {  //  Drag Up
@@ -18,6 +21,9 @@ const useTouch = ({ ref }) => {
   }
 
   const handleTouchStart = e => {
+    if (e.target !== ref.current) {
+      return
+    }
     const { clientY } = e.changedTouches[0]
     setAction(DragAction.HOLDING)
     setDragStartPoint(clientY)

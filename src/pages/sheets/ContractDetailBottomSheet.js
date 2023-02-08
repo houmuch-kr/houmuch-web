@@ -1,12 +1,15 @@
 import React, { useState } from "react"
-import { BottomSheet, BottomSheetMode } from "~/components";
+import { BottomSheet, BottomSheetMode, DataTable } from "~/components";
 import styled from "styled-components";
+import { TrendChart } from "~/components";
 
 const Section = styled.div`
   padding: 0 1rem;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  margin: .5rem auto;
   
   & > .title {
     font-weight: bold;
@@ -64,11 +67,37 @@ const ContractDetailBottomSheet = ({  }) => {
           <>
             <Section>
               <h2 className={"title"}>차트</h2>
-              <div></div>
+              <div className={"row"}>
+                <TrendChart />
+              </div>
             </Section>
             <Section>
               <h2 className={"title"}>거래내역</h2>
-              <div></div>
+              <div className={"row"}>
+                <DataTable headers={["날짜", "구분", "아파트", "가격", "면적"]} data={
+                  [
+                    {
+                      date: "22.01.03",
+                      type: "매매",
+                      name: "반포자이",
+                      price: "9.5억",
+                      squareMeter: "153m²"
+                    },{
+                      date: "22.01.03",
+                      type: "매매",
+                      name: "반포자이",
+                      price: "9.5억",
+                      squareMeter: "153m²"
+                    },{
+                      date: "22.01.03",
+                      type: "매매",
+                      name: "반포자이",
+                      price: "9.5억",
+                      squareMeter: "153m²"
+                    }
+                  ]
+                } />
+              </div>
             </Section>
           </>
         )
