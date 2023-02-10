@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import { DragAction } from "~/constants";
 
-const useTouch = ({ ref }) => {
-  const [ dragStartPoint, setDragStartPoint ] = useState()
+interface Props {
+  ref: RefObject<HTMLElement>
+}
+
+const useTouch = ({ ref }: Props) => {
+  const [ dragStartPoint, setDragStartPoint ] = useState<number>(0)
   const [ dragHeight, setDragHeight ] = useState(0)
   const [ action, setAction ] = useState(DragAction.IDLE)
 
-  const handleTouchEnd = e => {
+  const handleTouchEnd = (e: TouchEvent) => {
     if (e.target !== ref.current) {
       return
     }
@@ -20,8 +24,8 @@ const useTouch = ({ ref }) => {
     setDragHeight(height)
   }
 
-  const handleTouchStart = e => {
-    if (e.target !== ref.current) {
+  const handleTouchStart = (e: TouchEvent) => {
+    if (e.target !== ref?.current) {
       return
     }
     const { clientY } = e.changedTouches[0]
@@ -30,7 +34,7 @@ const useTouch = ({ ref }) => {
   }
 
   useEffect(() => {
-    const { addEventListener, removeEventListener } = ref.current
+    const { addEventListener, removeEventListener } = ref.current!!
     if (ref) {
       addEventListener('touchstart', handleTouchStart)
       addEventListener('touchend', handleTouchEnd)

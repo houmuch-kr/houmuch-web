@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { BottomSheet, BottomSheetMode, DataTable } from "~/components";
+import { BottomSheet, BottomSheetMode, DataTable, TrendChart } from "~/components";
 import styled from "styled-components";
-import { TrendChart } from "~/components";
 
 const Section = styled.div`
   padding: 0 1rem;
@@ -33,10 +32,10 @@ const Section = styled.div`
   }
 `
 
-const ContractDetailBottomSheet = ({  }) => {
-  const [ mode, setMode ] = useState()
+const ContractDetailBottomSheet = () => {
+  const [ mode, setMode ] = useState<BottomSheetMode>()
 
-  const handleChangeMode = mode => {
+  const handleChangeMode = (mode: BottomSheetMode) => {
     setMode(mode)
   }
 
