@@ -6,8 +6,15 @@ import {
   ContractAreaTrend,
   ContractBuildingList,
   ContractBuildingSummary,
-  ContractBuildingTrend
+  ContractBuildingTrend,
+  ContractSummary
 } from "~/types";
+
+export const fetchContractSummary = (type: number) => async(): Promise<ApiResponse<Array<ContractSummary>>> => {
+  return defaultApiClient.get(`/v1/contract/fetchList`, {
+    params: { type }
+  })
+}
 
 export const fetchAreaContractList = (areaCode: number) => async (): Promise<ApiResponse<ContractAreaList>> => {
   return defaultApiClient.get(`/v1/contract`, {

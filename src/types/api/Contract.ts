@@ -1,5 +1,11 @@
 import { AreaCode, Building, Contract } from "~/types";
 
+export interface ContractSummary {
+  areaCode: AreaCode
+  price: number
+  count: number
+}
+
 export interface ContractAreaList {
   areaCode: AreaCode
   contractList: Array<Contract>

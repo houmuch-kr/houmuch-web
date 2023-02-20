@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Color } from "../../constants";
 
-const LineChart = () => {
+interface Props {
+  xAxisLabels: Array<string>
+  values: Array<number>
+}
+
+const LineChart = ({ xAxisLabels, values }: Props) => {
+  console.log('values', values)
+  console.log('xAxisLabels', xAxisLabels)
   const [ data, setData ] = useState({
-    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
+    labels: xAxisLabels,
     datasets: [
       {
-        data: [9.8, 10, 5, 4, 6, 8, 11, 14, 16, 20, 15, 18],
+        data: values,
         borderColor: Color.DEFAULT,
         borderWidth: 2,
         pointBackgroundColor: '#FF3435',
@@ -33,11 +40,9 @@ const LineChart = () => {
               display: false,
             },
             y: {
-              min: 0,
-              max: 30,
               position: "right",
               ticks: {
-                stepSize: 5,
+
               }
             }
           }

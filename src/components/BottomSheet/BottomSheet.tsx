@@ -34,7 +34,10 @@ const Styles = {
     width: 50px;
     border-radius: 20px;
   `,
-  Content: styled.section``,
+  Content: styled.section`
+    height: calc(100% - 15px);
+    overflow-y: auto;
+  `,
   height: {
     HIDE: '0px',
     SIMPLE: '130px',
@@ -51,16 +54,21 @@ export enum BottomSheetMode {
 interface Props {
   children: ReactNode
   onModeChange: (mode: BottomSheetMode) => void
+  defaultMode: BottomSheetMode
 }
 
-const BottomSheet = ({ children, onModeChange }: Props) => {
+const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
   const ref = useRef<HTMLElement>(null)
-  const [ mode, setMode ] = useState(BottomSheetMode.DETAIL)
+  const [ mode, setMode ] = useState(BottomSheetMode.HIDE)
   const [ action, dragHeight ] = useTouch({ ref })
 
   useEffect(() => {
     onModeChange && onModeChange(mode)
   }, [ mode ])
+
+  useEffect(() => {
+    setMode(defaultMode)
+  }, [ defaultMode ])
 
   useEffect(() => {
     if (action === DragAction.UP) {

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-const BarChart = () => {
+interface Props {
+  xAxisLabels: Array<string>
+  values: Array<number>
+}
+const BarChart = ({ xAxisLabels, values }: Props) => {
   const [ data, setData ] = useState({
-    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
+    labels: xAxisLabels,
     datasets: [
       {
-        data: [9.8, 10, 5, 4, 6, 8, 11, 14, 16, 20, 15, 18],
+        data: values,
         backgroundColor: 'rgba(255, 52, 53, 0.2)',
         tension: 0.4,
         maxBarThickness: 10
