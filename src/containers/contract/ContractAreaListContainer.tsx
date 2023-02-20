@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useContractAreaListQuery } from "~/hooks";
 import styled from "styled-components";
 import { DataTable } from "~/components";
-import contractAreaSummaryContainer from "~/containers/contract/ContractAreaSummaryContainer";
 import { ContractType } from "~/types";
 import moment from "moment";
 
@@ -45,7 +44,6 @@ const ContractAreaListContainer = ({ areaCode }: Props) => {
 
   useEffect(() => {
     if (data && data.data) {
-      console.log('data.data.contractList', data.data.contractList)
       setItems(() => data.data!!.contractList.slice(0, 5).map(contract => {
         const { contractedAt, type, building } = contract
         const { name, squareMeter } = building

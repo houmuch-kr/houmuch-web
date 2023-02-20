@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Styles = {
   Loader: styled.div<{
     fullScreen: boolean
-    enableBackground: boolean
+    isEnableBackground: boolean
   }>`
     position: ${({ fullScreen }) => fullScreen ? `absolute` : `relative`};
     width: 100%;
@@ -16,18 +16,18 @@ const Styles = {
     align-items: center;
     margin: 1.25rem 0;
     z-index: 99999;
-    background-color: ${({ enableBackground }) => enableBackground && `rgba(255, 255, 255, .5)`};
+    background-color: ${({ isEnableBackground }) => isEnableBackground ? `rgba(255, 255, 255, .5)` : ``};
   `
 }
 
 interface Props {
   fullScreen?: boolean
-  enableBackground?: boolean
+  isEnableBackground?: boolean
 }
 
-const Loader = ({ fullScreen = false, enableBackground = false }: Props) => {
+const Loader = ({ fullScreen = false, isEnableBackground = false }: Props) => {
   return(
-    <Styles.Loader fullScreen={fullScreen} enableBackground={enableBackground}>
+    <Styles.Loader fullScreen={fullScreen} isEnableBackground={isEnableBackground}>
       <ClipLoader loading={true} size={50} color={Color.DEFAULT} />
     </Styles.Loader>
   )

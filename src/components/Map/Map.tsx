@@ -27,7 +27,7 @@ const Map = ({ defaultZoomLevel, onMarkerClick, markerItems, onZoomChange, onBou
   return (
     <NavermapsProvider ncpClientId={process.env.NCP_CLIENT_ID || "e5njzmk0hi"}>
       {
-        loading && <Loader fullScreen={true} enableBackground={true} />
+        loading && <Loader fullScreen={true} isEnableBackground={true} />
       }
       <NaverMapContainer
         id={'map'}
