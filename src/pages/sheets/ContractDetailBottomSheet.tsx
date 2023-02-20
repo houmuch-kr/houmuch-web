@@ -3,6 +3,7 @@ import { BottomSheet, BottomSheetMode } from "~/components";
 import ContractAreaSummaryContainer from "../../containers/contract/ContractAreaSummaryContainer";
 import ContractAreaTrendContainer from "~/containers/contract/ContractAreaTrendContainer";
 import ContractAreaListContainer from "~/containers/contract/ContractAreaListContainer";
+import { TableContext, useTable } from "~/hooks";
 
 interface Props {
   areaCode?: number
@@ -10,6 +11,7 @@ interface Props {
 
 const ContractDetailBottomSheet = ({ areaCode }: Props) => {
   const [ currentMode, setCurrentMode ] = useState<BottomSheetMode>(BottomSheetMode.HIDE)
+  const tableState = useTable({})
 
   useEffect(() => {
     if (areaCode) {
@@ -32,7 +34,9 @@ const ContractDetailBottomSheet = ({ areaCode }: Props) => {
         areaCode && currentMode === BottomSheetMode.DETAIL && (
           <>
             <ContractAreaTrendContainer areaCode={areaCode} />
-            <ContractAreaListContainer areaCode={areaCode} />
+            <TableContext.Provider value={tableState}>
+              <ContractAreaListContainer areaCode={areaCode} />
+            </TableContext.Provider>
           </>
         )
       }

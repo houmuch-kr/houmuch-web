@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Color } from "../../constants";
+import { Loader } from "~/components";
+import { useTableContext } from "~/hooks";
 import { Simulate } from "react-dom/test-utils";
 import load = Simulate.load;
-import { Loader } from "~/components";
 
 const Styles = {
   Style: styled.div`
@@ -32,9 +33,12 @@ const Styles = {
   `,
   TableColumnStyle: styled.td<{
     textAlign?: string
+    wrapColumn?: boolean
   }>`
     padding: .5rem;
     text-align: ${({ textAlign }) => textAlign ? textAlign : `center`};
+    white-space: ${({ wrapColumn }) => wrapColumn ? `wrap` : `nowrap`};
+    border-bottom: 1px solid #ececec;
   `,
   ButtonStyle: styled.button`
     background-color: ${({ color }) => color};
@@ -51,12 +55,13 @@ const Styles = {
 interface Props {
   headers: Array<string>
   data: Array<{ [key: string]: any }>
+  wrapColumn?: Array<number>
   onQuery?: ({ page }: { page: number }) => void
   loading: boolean
 }
 
-const DataTable = ({ headers, data, loading, onQuery }: Props) => {
-  const [ page, setPage ] = useState<number>(0)
+const DataTable = ({ headers, data, wrapColumn, loading, onQuery }: Props) => {
+  const { setPage } = useTableContext()
 
   const handleClickMoreButton = () => {
     setPage(page => {
@@ -88,25 +93,28 @@ const DataTable = ({ headers, data, loading, onQuery }: Props) => {
         </thead>
         <tbody>
         {
-          loading ? (
-            <tr>
-              <td colSpan={headers.length}>
-                <Loader />
-              </td>
-            </tr>
-          ) : data && data.map((row, rowKey) => {
+          data && data.map((row, rowKey) => {
             return (
               <Styles.TableRowStyle key={rowKey}>
                 {
                   Object.entries(row).map(([key, value], columnKey) => {
                     return (
-                      <Styles.TableColumnStyle key={columnKey}>{ value }</Styles.TableColumnStyle>
+                      <Styles.TableColumnStyle wrapColumn={wrapColumn?.includes(columnKey)} key={columnKey}>{ value }</Styles.TableColumnStyle>
                     )
                   })
                 }
               </Styles.TableRowStyle>
             )
           })
+        }
+        {
+          loading && (
+            <tr>
+              <td colSpan={headers.length}>
+                <Loader />
+              </td>
+            </tr>
+          )
         }
         </tbody>
       </Styles.TableStyle>

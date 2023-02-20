@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="611fc69b-3ad1-4f13-b6d8-b08111a7dac5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/hooks/context/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/context/useTableContext.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/state/useTable.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DataTable/DataTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTable/DataTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractAreaListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractAreaListContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractSummaryMapContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractSummaryMapContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/query/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/query/contract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/state/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/state/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/contract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/defaultApiClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/defaultApiClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sheets/ContractDetailBottomSheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sheets/ContractDetailBottomSheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/domain/Contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/Contract.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +144,7 @@
       <workItem from="1675817106858" duration="6057000" />
       <workItem from="1675827678354" duration="26012000" />
       <workItem from="1676529810325" duration="34956000" />
-      <workItem from="1676866085086" duration="198000" />
+      <workItem from="1676866085086" duration="7214000" />
     </task>
     <servers />
   </component>

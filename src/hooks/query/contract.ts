@@ -24,8 +24,9 @@ export const useContractSummaryQuery = (type: number): UseQueryResult<ApiRespons
   return useConfiguredQuery("fetchContractSummary", fetchContractSummary(type), { type })
 }
 
-export const useContractAreaListQuery = (areaCode: number): UseQueryResult<ApiResponse<ContractAreaList>> => {
-  return useConfiguredQuery("fetchAreaContractList", fetchAreaContractList(areaCode), { areaCode })
+export const useContractAreaListQuery = (areaCode: number, page: number, size: number): UseQueryResult<ApiResponse<ContractAreaList>> => {
+  const params = { areaCode, page, size }
+  return useConfiguredQuery("fetchAreaContractList", fetchAreaContractList(params), params)
 }
 
 export const useContractAreaSummaryQuery = (areaCode: number): UseQueryResult<ApiResponse<ContractAreaSummary>> => {
@@ -36,8 +37,9 @@ export const useContractAreaTrendQuery = (areaCode: number): UseQueryResult<ApiR
   return useConfiguredQuery("fetchAreaContractTrend", fetchAreaContractTrend(areaCode), { areaCode })
 }
 
-export const useContractBuildingListQuery = (buildingId: string): UseQueryResult<ApiResponse<ContractBuildingList>> => {
-  return useConfiguredQuery("fetchBuildingContractList", fetchBuildingContractList(buildingId), { buildingId })
+export const useContractBuildingListQuery = (buildingId: string, page: number, size: number): UseQueryResult<ApiResponse<ContractBuildingList>> => {
+  const params = { buildingId, page, size }
+  return useConfiguredQuery("fetchBuildingContractList", fetchBuildingContractList(params), params)
 }
 
 export const useContractBuildingSummaryQuery = (buildingId: string): UseQueryResult<ApiResponse<ContractBuildingSummary>> => {

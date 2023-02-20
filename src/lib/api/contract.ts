@@ -16,13 +16,12 @@ export const fetchContractSummary = (type: number) => async(): Promise<ApiRespon
   })
 }
 
-export const fetchAreaContractList = (areaCode: number) => async (): Promise<ApiResponse<ContractAreaList>> => {
-  return defaultApiClient.get(`/v1/contract`, {
-    params: {
-      areaCode: areaCode
-    }
-  })
-}
+export const fetchAreaContractList = (params: { areaCode: number, page: number, size: number }) =>
+  async (): Promise<ApiResponse<ContractAreaList>> => {
+    return defaultApiClient.get(`/v1/contract`, {
+      params: { ...params }
+    })
+  }
 
 export const fetchAreaContractSummary = (areaCode: number) => async (): Promise<ApiResponse<ContractAreaSummary>> => {
   return defaultApiClient.get(`/v1/contract/summary`, {
@@ -40,8 +39,11 @@ export const fetchAreaContractTrend = (areaCode: number) => async (): Promise<Ap
   })
 }
 
-export const fetchBuildingContractList = (buildingId: string) => async (): Promise<ApiResponse<ContractBuildingList>> => {
-  return defaultApiClient.get(`/v1/contract/${buildingId}`)
+export const fetchBuildingContractList = (params: { buildingId: string, page: number, size: number }) => async (): Promise<ApiResponse<ContractBuildingList>> => {
+  const { buildingId, page, size } = params
+  return defaultApiClient.get(`/v1/contract/${buildingId}`, {
+    params: { page, size }
+  })
 }
 
 export const fetchBuildingContractSummary = (buildingId: string) => async (): Promise<ApiResponse<ContractBuildingSummary>> => {

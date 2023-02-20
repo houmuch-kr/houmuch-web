@@ -5,5 +5,8 @@ export interface Contract {
   type: ContractType,
   contractedAt: string,
   serialNumber?: string,
+  floor?: number
+  price: number
+  monthlyPrice: number
   building: Building
 }
