@@ -17,11 +17,16 @@ import {
   ContractBuildingList,
   ContractBuildingSummary,
   ContractBuildingTrend,
-  ContractSummary
+  ContractSummary,
+  Coordinate
 } from "~/types";
 
-export const useContractSummaryQuery = (type: number): UseQueryResult<ApiResponse<Array<ContractSummary>>> => {
-  return useConfiguredQuery("fetchContractSummary", fetchContractSummary(type), { type })
+export const useContractSummaryQuery = (params: {
+  type: number
+  max?: Coordinate
+  min?: Coordinate
+}): UseQueryResult<ApiResponse<Array<ContractSummary>>> => {
+  return useConfiguredQuery("fetchContractSummary", fetchContractSummary({ ...params }), params, params.max !== undefined && params.min !== undefined)
 }
 
 export const useContractAreaListQuery = (areaCode: number, page: number, size: number): UseQueryResult<ApiResponse<ContractAreaList>> => {

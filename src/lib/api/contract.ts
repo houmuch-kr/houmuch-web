@@ -7,12 +7,24 @@ import {
   ContractBuildingList,
   ContractBuildingSummary,
   ContractBuildingTrend,
-  ContractSummary
+  ContractSummary,
+  Coordinate
 } from "~/types";
 
-export const fetchContractSummary = (type: number) => async(): Promise<ApiResponse<Array<ContractSummary>>> => {
+export const fetchContractSummary = (params: {
+  type: number
+  max?: Coordinate
+  min?: Coordinate
+}) => async(): Promise<ApiResponse<Array<ContractSummary>>> => {
+  const { type } = params
   return defaultApiClient.get(`/v1/contract/fetchList`, {
-    params: { type }
+    params: {
+      type,
+      maxLatitude: params.max?.latitude,
+      maxLongitude: params.max?.longitude,
+      minLatitude: params.min?.latitude,
+      minLongitude: params.min?.latitude
+    }
   })
 }
 

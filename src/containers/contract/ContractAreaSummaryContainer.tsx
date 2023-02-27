@@ -52,8 +52,8 @@ const ContractAreaSummaryContainer = ({ areaCode }: Props) => {
               <div>
                 <div className={"row price"}>
                   <label className={"label"}>평균가격</label>
-                  <span>{(priceYear / 1000).toFixed(1)}억 (1년)</span>
-                  <span>{(priceMonth / 1000).toFixed(1)}억 (1개월)</span>
+                  <span>{(priceYear / 10000).toFixed(1)}억 (1년)</span>
+                  <span>{(priceMonth / 10000).toFixed(1)}억 (1개월)</span>
                 </div>
                 <div className={"row volume"}>
                   <label className={"label"}>거래건수</label>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Map } from "~/components";
+import { Coordinate } from "~/types";
 import { useContractSummaryQuery } from "~/hooks";
 
 interface Props {
@@ -11,7 +12,8 @@ const ContractSummaryMapContainer = ({ onChange }: Props) => {
   const DEFAULT_TYPE = 0
   const [ zoomLevel, setZoomLevel ] = useState<number>(DEFAULT_ZOOM_LEVEL)
   const [ type, setType ] = useState<number>(DEFAULT_TYPE)
-  const { data, isLoading } = useContractSummaryQuery(type)
+  const [ boundsCoords, setBoundsCoords ] = useState<{ max: Coordinate, min: Coordinate }>()
+  const { data, isLoading } = useContractSummaryQuery({ type, ...boundsCoords })
 
   useEffect(() => {
     const type = (() => {
@@ -33,8 +35,8 @@ const ContractSummaryMapContainer = ({ onChange }: Props) => {
     onChange && onChange(areaCode.id)
   }
 
-  const handleBoundsChange = (bounds: naver.maps.Bounds) => {
-
+  const handleBoundsChange = (bounds: { max: Coordinate, min: Coordinate }) => {
+    setBoundsCoords(bounds)
   }
 
   const handleZoomChange = (zoomLevel: number) => {
