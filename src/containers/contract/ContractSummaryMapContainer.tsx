@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Map } from "~/components";
-import { Coordinate } from "~/types";
+import { AreaMarkerItem, BuildingMarkerItem, Map } from "~/components";
+import { AreaCode, Building, Coordinate } from "~/types";
 import { useContractSummaryQuery } from "~/hooks";
 
 interface Props {
-  onChange: (areaCode: number) => void
+  onChange: (fetchType: 'BUILDING' | 'AREA', id: AreaCode | Building) => void
 }
 
 const ContractSummaryMapContainer = ({ onChange }: Props) => {
@@ -13,7 +13,7 @@ const ContractSummaryMapContainer = ({ onChange }: Props) => {
   const [ zoomLevel, setZoomLevel ] = useState<number>(DEFAULT_ZOOM_LEVEL)
   const [ type, setType ] = useState<number>(DEFAULT_TYPE)
   const [ boundsCoords, setBoundsCoords ] = useState<{ max: Coordinate, min: Coordinate }>()
-  const { data, isLoading } = useContractSummaryQuery({ type, ...boundsCoords })
+  const { data, isLoading } = useContractSummaryQuery({ type, boundsCoords })
 
   useEffect(() => {
     const type = (() => {
@@ -23,16 +23,26 @@ const ContractSummaryMapContainer = ({ onChange }: Props) => {
         return 0
       } else if (zoomLevel < 13) {
         return 1
-      } else {
+      } else if (zoomLevel < 15) {
         return 2
+      } else {
+        return 3
       }
     })()
     setType(type)
   }, [ zoomLevel ])
 
-  const handleMarkerClick = (markerAttribute: any) => {
-    const { areaCode } = markerAttribute
-    onChange && onChange(areaCode.id)
+  const handleMarkerClick = (marker: AreaMarkerItem | BuildingMarkerItem) => {
+    let id
+    let fetchType: 'AREA' | 'BUILDING'
+    if (Object.hasOwn(marker, 'areaCode')) {
+      fetchType = 'AREA'
+      id = (marker as AreaMarkerItem).areaCode
+    } else {
+      fetchType = 'BUILDING'
+      id = (marker as BuildingMarkerItem).building
+    }
+    onChange && onChange(fetchType, id)
   }
 
   const handleBoundsChange = (bounds: { max: Coordinate, min: Coordinate }) => {

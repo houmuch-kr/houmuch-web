@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react"
 import { BottomSheet, BottomSheetMode } from "~/components";
-import ContractAreaSummaryContainer from "../../containers/contract/ContractAreaSummaryContainer";
-import ContractAreaTrendContainer from "~/containers/contract/ContractAreaTrendContainer";
-import ContractAreaListContainer from "~/containers/contract/ContractAreaListContainer";
 import { TableContext, useTable } from "~/hooks";
+import { AreaCode, Building } from "~/types";
+import {
+  ContractAreaListContainer,
+  ContractAreaSummaryContainer,
+  ContractAreaTrendContainer,
+  ContractBuildingListContainer,
+  ContractBuildingSummaryContainer,
+  ContractBuildingTrendContainer
+} from "~/containers";
 
 interface Props {
-  areaCode?: number
+  type?: 'BUILDING' | 'AREA'
+  id?: AreaCode | Building
 }
 
-const ContractDetailBottomSheet = ({ areaCode }: Props) => {
+const ContractDetailBottomSheet = ({ type, id }: Props) => {
   const [ currentMode, setCurrentMode ] = useState<BottomSheetMode>(BottomSheetMode.HIDE)
   const tableState = useTable({})
 
   useEffect(() => {
-    if (areaCode) {
+    if (id) {
       setCurrentMode(BottomSheetMode.SIMPLE)
     } else {
       setCurrentMode(BottomSheetMode.HIDE)
     }
-  }, [ areaCode ])
+  }, [ id ])
 
   const handleChangeMode = (mode: BottomSheetMode) => {
     setCurrentMode(mode)
@@ -28,15 +35,37 @@ const ContractDetailBottomSheet = ({ areaCode }: Props) => {
   return (
     <BottomSheet onModeChange={handleChangeMode} defaultMode={currentMode}>
       {
-        areaCode && currentMode !== BottomSheetMode.HIDE && <ContractAreaSummaryContainer areaCode={areaCode} />
-      }
-      {
-        areaCode && currentMode === BottomSheetMode.DETAIL && (
+        type === 'AREA' ? (
           <>
-            <ContractAreaTrendContainer areaCode={areaCode} />
-            <TableContext.Provider value={tableState}>
-              <ContractAreaListContainer areaCode={areaCode} />
-            </TableContext.Provider>
+            {
+              id && currentMode !== BottomSheetMode.HIDE && <ContractAreaSummaryContainer areaCode={id as AreaCode} />
+            }
+            {
+              id && currentMode === BottomSheetMode.DETAIL && (
+                <>
+                  <ContractAreaTrendContainer areaCode={id as AreaCode} />
+                  <TableContext.Provider value={tableState}>
+                    <ContractAreaListContainer areaCode={id as AreaCode} />
+                  </TableContext.Provider>
+                </>
+              )
+            }
+          </>
+        ) : (
+          <>
+            {
+              id && currentMode !== BottomSheetMode.HIDE && <ContractBuildingSummaryContainer building={id as Building} />
+            }
+            {
+              id && currentMode === BottomSheetMode.DETAIL && (
+                <>
+                  <ContractBuildingTrendContainer building={id as Building} />
+                  <TableContext.Provider value={tableState}>
+                    <ContractBuildingListContainer building={id as Building} />
+                  </TableContext.Provider>
+                </>
+              )
+            }
           </>
         )
       }

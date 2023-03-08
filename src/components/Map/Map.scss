@@ -1,0 +1,38 @@
+@import "../../styles/Global";
+
+.marker {
+  &.area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: $defaultColor;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px #ff3535;
+    box-sizing: border-box;
+    padding: .25rem 0;
+    width: 60px;
+
+    &.empty {
+      background-color: #a4a4a4;
+      color: white;
+      border-radius: 5px;
+      padding: .5rem 0;
+      width: 60px;
+      box-shadow: none;
+    }
+  }
+
+  &.building {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: $defaultColor;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid indianred;
+    padding: .25rem 0;
+    width: 50px
+  }
+}
+

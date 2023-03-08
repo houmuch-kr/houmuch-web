@@ -5,20 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="611fc69b-3ad1-4f13-b6d8-b08111a7dac5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hooks/context/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/context/useTableContext.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/state/useTable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/contract/ContractBuildingListContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/contract/ContractBuildingSummaryContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/contract/ContractBuildingTrendContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/state/useClickOutsideOfElement.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractAreaListPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractAreaSummaryPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractBuildingListPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractBuildingSummaryPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractListPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractSummaryPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/ContractTrendPresenter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/contract/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/presenters/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataTable/DataTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataTable/DataTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart/BarChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart/BarChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart/LineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart/LineChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chart/TrendChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chart/TrendChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractAreaListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractAreaListContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractAreaSummaryContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractAreaSummaryContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractAreaTrendContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractAreaTrendContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractSummaryMapContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractSummaryMapContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/contract/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/query/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/query/contract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/query/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/query/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/state/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/state/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/state/useTouch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/state/useTouch.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/contract.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api/defaultApiClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/defaultApiClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/sheets/ContractDetailBottomSheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sheets/ContractDetailBottomSheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/domain/Contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/domain/Contract.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,33 +96,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chaehun/workspace/houmuch/houmuch-web/src/containers/contract&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.TypeScript&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/chaehun/workspace/houmuch/houmuch-web/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/chaehun/workspace/houmuch/houmuch-web/src/containers/contract",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.TypeScript",
+    "ts.external.directory.path": "/Users/chaehun/workspace/houmuch/houmuch-web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/containers/contract" />
+      <recent name="$PROJECT_DIR$/src/presenters/contract" />
+      <recent name="$PROJECT_DIR$/src/hooks/state" />
       <recent name="$PROJECT_DIR$/src/types/domain" />
       <recent name="$PROJECT_DIR$/src/domain" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers/contract" />
       <recent name="$PROJECT_DIR$/src/types/api" />
       <recent name="$PROJECT_DIR$/src/types/domain" />
       <recent name="$PROJECT_DIR$/src/components/Chart" />
@@ -144,7 +167,11 @@
       <workItem from="1675817106858" duration="6057000" />
       <workItem from="1675827678354" duration="26012000" />
       <workItem from="1676529810325" duration="34956000" />
-      <workItem from="1676866085086" duration="7214000" />
+      <workItem from="1676866085086" duration="24663000" />
+      <workItem from="1677486932753" duration="1080000" />
+      <workItem from="1677735516098" duration="596000" />
+      <workItem from="1677821122949" duration="46214000" />
+      <workItem from="1678236005790" duration="7404000" />
     </task>
     <servers />
   </component>

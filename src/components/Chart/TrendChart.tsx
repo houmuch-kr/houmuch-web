@@ -27,18 +27,22 @@ Chart.register(
 interface Props {
   loading: boolean
   data?: Array<any>
+  barChartHeight?: number
+  lineChartHeight?: number
 }
 
-const TrendChart = ({ loading, data }: Props) => {
+const TrendChart = ({ loading, data, barChartHeight, lineChartHeight }: Props) => {
   return (
     <div>
       {
         loading ? <Loader /> : data && (
           <>
             <LineChart
+              height={lineChartHeight}
               values={data.map(item => Number.parseInt(item.price.toFixed()))}
               xAxisLabels={data.map(item => item.xAxisLabel)} />
             <BarChart
+              height={barChartHeight}
               values={data.map(item => item.count)}
               xAxisLabels={data.map(item => item.xAxisLabel)} />
           </>

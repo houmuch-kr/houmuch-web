@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useTouch } from "~/hooks/state";
 import { DragAction } from "~/constants";
+import useClickOutsideOfElement from "../../hooks/state/useClickOutsideOfElement";
 
 const Styles = {
   BottomSheet: styled.div<{
@@ -58,9 +59,15 @@ interface Props {
 }
 
 const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
+  const bottomSheetRef = useRef<HTMLDivElement>(null)
   const ref = useRef<HTMLElement>(null)
   const [ mode, setMode ] = useState(BottomSheetMode.HIDE)
   const [ action, dragHeight ] = useTouch({ ref })
+
+  useClickOutsideOfElement({
+    ref: bottomSheetRef,
+    onClick: () => setMode(BottomSheetMode.HIDE),
+  })
 
   useEffect(() => {
     onModeChange && onModeChange(mode)
@@ -90,6 +97,7 @@ const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
 
   return (
     <Styles.BottomSheet
+      ref={bottomSheetRef}
       height={Styles.height[mode]}>
       <Styles.Holder ref={ref}>
         <Styles.HolderButton />

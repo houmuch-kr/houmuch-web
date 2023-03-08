@@ -10,7 +10,7 @@ export const useConfiguredQuery = (name: string, queryFn: Function, keys?: any, 
     refetchOnWindowFocus: false,
     refetchIntervalInBackground: false,
     retry: false,
-    enabled: enable || true,
+    enabled: enable,
     onSuccess: data => {
       console.info('data', data)
     }

@@ -5,11 +5,10 @@ import { Color } from "../../constants";
 interface Props {
   xAxisLabels: Array<string>
   values: Array<number>
+  height?: number
 }
 
-const LineChart = ({ xAxisLabels, values }: Props) => {
-  console.log('values', values)
-  console.log('xAxisLabels', xAxisLabels)
+const LineChart = ({ xAxisLabels, values, height }: Props) => {
   const [ data, setData ] = useState({
     labels: xAxisLabels,
     datasets: [
@@ -25,7 +24,7 @@ const LineChart = ({ xAxisLabels, values }: Props) => {
   return (
     <>
       <div>
-        <Line options={{
+        <Line height={height + "px"} options={{
           layout: {
             autoPadding: true
           },

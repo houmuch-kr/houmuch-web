@@ -1,5 +1,6 @@
 export * from "./BottomSheet"
 export * from "./Chart"
+export * from "./Map/Map"
 
 export { default as Loader } from "./Loader"
 export { default as PageTemplate } from "./PageTemplate/PageTemplate"

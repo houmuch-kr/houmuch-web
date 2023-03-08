@@ -23,10 +23,13 @@ import {
 
 export const useContractSummaryQuery = (params: {
   type: number
-  max?: Coordinate
-  min?: Coordinate
+  boundsCoords?: {
+    max: Coordinate
+    min: Coordinate
+  }
 }): UseQueryResult<ApiResponse<Array<ContractSummary>>> => {
-  return useConfiguredQuery("fetchContractSummary", fetchContractSummary({ ...params }), params, params.max !== undefined && params.min !== undefined)
+  const { type, boundsCoords } = params
+  return useConfiguredQuery("fetchContractSummary", fetchContractSummary({ type, ...boundsCoords }), params, boundsCoords !== undefined)
 }
 
 export const useContractAreaListQuery = (areaCode: number, page: number, size: number): UseQueryResult<ApiResponse<ContractAreaList>> => {

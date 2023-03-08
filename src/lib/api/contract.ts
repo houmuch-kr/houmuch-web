@@ -23,7 +23,7 @@ export const fetchContractSummary = (params: {
       maxLatitude: params.max?.latitude,
       maxLongitude: params.max?.longitude,
       minLatitude: params.min?.latitude,
-      minLongitude: params.min?.latitude
+      minLongitude: params.min?.longitude
     }
   })
 }

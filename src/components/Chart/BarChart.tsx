@@ -4,8 +4,9 @@ import { Bar } from "react-chartjs-2";
 interface Props {
   xAxisLabels: Array<string>
   values: Array<number>
+  height?: number
 }
-const BarChart = ({ xAxisLabels, values }: Props) => {
+const BarChart = ({ xAxisLabels, values, height }: Props) => {
   const [ data, setData ] = useState({
     labels: xAxisLabels,
     datasets: [
@@ -20,7 +21,7 @@ const BarChart = ({ xAxisLabels, values }: Props) => {
   return (
     <>
       <div>
-        <Bar height={80} options={{
+        <Bar height={height} options={{
           responsive: true,
           plugins: {
             legend: {

@@ -11,7 +11,7 @@ const useTouch = ({ ref }: Props) => {
   const [ action, setAction ] = useState(DragAction.IDLE)
 
   const handleTouchEnd = (e: TouchEvent) => {
-    if (e.target !== ref.current) {
+    if (action !== DragAction.HOLDING) {
       return
     }
     const { clientY } = e.changedTouches[0]
@@ -25,10 +25,33 @@ const useTouch = ({ ref }: Props) => {
   }
 
   const handleTouchStart = (e: TouchEvent) => {
-    if (e.target !== ref?.current) {
+    if (!ref.current?.contains(e.target as Node)) {
       return
     }
     const { clientY } = e.changedTouches[0]
+    setAction(DragAction.HOLDING)
+    setDragStartPoint(clientY)
+  }
+
+  const handleMouseUp = (e: MouseEvent) => {
+    if (action !== DragAction.HOLDING) {
+      return
+    }
+    const { clientY } = e
+    const height = dragStartPoint - clientY
+    if (height > 0) {  //  Drag Up
+      setAction(DragAction.UP)
+    } else {
+      setAction(DragAction.DOWN)
+    }
+    setDragHeight(height)
+  }
+
+  const handleMouseDown = (e: MouseEvent) => {
+    if (!ref.current?.contains(e.target as Node)) {
+      return
+    }
+    const { clientY } = e
     setAction(DragAction.HOLDING)
     setDragStartPoint(clientY)
   }
@@ -38,10 +61,14 @@ const useTouch = ({ ref }: Props) => {
     if (ref) {
       addEventListener('touchstart', handleTouchStart)
       addEventListener('touchend', handleTouchEnd)
+      addEventListener('mouseup', handleMouseUp)
+      addEventListener('mousedown', handleMouseDown)
     }
     return () => {
       removeEventListener('touchstart', handleTouchStart)
       removeEventListener('touchend', handleTouchEnd)
+      removeEventListener('mouseup', handleMouseUp)
+      removeEventListener('mousedown', handleMouseDown)
     }
   })
 
