@@ -1,6 +1,8 @@
 import { useQuery } from "react-query";
 
 export * from "./contract"
+export * from "./area"
+export * from "./hospital"
 
 export const useConfiguredQuery = (name: string, queryFn: Function, keys?: any, enable?: boolean) => {
   return useQuery({

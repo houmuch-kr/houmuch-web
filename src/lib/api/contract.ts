@@ -1,4 +1,4 @@
-import defaultApiClient from "~/lib/api";
+import { defaultApiClient } from "~/lib/api";
 import {
   ApiResponse,
   ContractAreaList,
