@@ -8,9 +8,9 @@
     background-color: $defaultColor;
     color: white;
     border-radius: 5px;
-    box-shadow: 0 0 2px 1px #ff3535;
+    box-shadow: 0 0 4px 2px #c8c8c8;
     box-sizing: border-box;
-    padding: .25rem 0;
+    padding: .45rem 0;
     width: 60px;
 
     &.empty {
@@ -20,6 +20,38 @@
       padding: .5rem 0;
       width: 60px;
       box-shadow: none;
+    }
+  }
+
+  & .markerLabel {
+    &.count {
+      right: 0;
+      text-align: center;
+      font-size: .75rem;
+      position: absolute;
+      top: -16px;
+      background-color: white;
+      color: black;
+      border: 2.5px solid red;
+      padding: .1rem .25rem;
+      padding-top: 4px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    &.address {
+      width: 100%;
+      text-align: center;
+      font-size: .85rem;
+      font-weight: 500;
+      margin-bottom: .3rem
+    }
+
+    &.price {
+      width: 100%;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 500
     }
   }
 

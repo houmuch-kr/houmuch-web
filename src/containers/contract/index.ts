@@ -4,4 +4,4 @@ export { default as ContractAreaTrendContainer } from "./ContractAreaTrendContai
 export { default as ContractBuildingListContainer } from "./ContractBuildingListContainer"
 export { default as ContractBuildingSummaryContainer } from "./ContractBuildingSummaryContainer"
 export { default as ContractBuildingTrendContainer } from "./ContractBuildingTrendContainer"
-export { default as ContractSummaryMapContainer } from "./ContractSummaryMapContainer"
+export { default as ContractSummaryContainer } from "./ContractSummaryContainer"

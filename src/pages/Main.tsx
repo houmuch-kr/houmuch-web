@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import ContractDetailBottomSheet from "./sheets/ContractDetailBottomSheet";
 import { PageTemplate } from "../components";
-import ContractSummaryMapContainer from "../containers/contract/ContractSummaryMapContainer";
+import ContractSummaryMap from "./ContractSummaryMap";
 import { AreaCode, Building } from "~/types";
 
 const MainContext = createContext<{
@@ -28,7 +28,7 @@ const Main = () => {
       setFetchId: handleChangeFetchId
     }}>
       <PageTemplate overflow={"hidden"}>
-        <ContractSummaryMapContainer />
+        <ContractSummaryMap />
         <ContractDetailBottomSheet />
       </PageTemplate>
     </MainContext.Provider>

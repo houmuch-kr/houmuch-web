@@ -1,7 +1,8 @@
 import { AreaCode, Building, Contract } from "~/types";
 
 export interface ContractSummary {
-  areaCode: AreaCode
+  areaCode?: AreaCode
+  building?: Building
   price: number
   count: number
 }
