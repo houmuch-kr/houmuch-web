@@ -10,15 +10,12 @@ import {
   ContractBuildingSummaryContainer,
   ContractBuildingTrendContainer
 } from "~/containers";
+import { Main } from "~/pages";
 
-interface Props {
-  type?: 'BUILDING' | 'AREA'
-  id?: AreaCode | Building
-}
-
-const ContractDetailBottomSheet = ({ type, id }: Props) => {
+const ContractDetailBottomSheet = () => {
   const [ currentMode, setCurrentMode ] = useState<BottomSheetMode>(BottomSheetMode.HIDE)
   const tableState = useTable({})
+  const { id, fetchType, setFetchId } = Main.useContext()
 
   useEffect(() => {
     if (id) {
@@ -32,10 +29,14 @@ const ContractDetailBottomSheet = ({ type, id }: Props) => {
     setCurrentMode(mode)
   }
 
+  const handleClickOutside = () => {
+    setFetchId(undefined, undefined)
+  }
+
   return (
-    <BottomSheet onModeChange={handleChangeMode} defaultMode={currentMode}>
+    <BottomSheet onModeChange={handleChangeMode} defaultMode={currentMode} onClickOutside={handleClickOutside}>
       {
-        type === 'AREA' ? (
+        fetchType === 'AREA' ? (
           <>
             {
               id && currentMode !== BottomSheetMode.HIDE && <ContractAreaSummaryContainer areaCode={id as AreaCode} />

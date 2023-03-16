@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { AreaMarkerItem, BuildingMarkerItem, Map } from "~/components";
-import { AreaCode, Building, Coordinate } from "~/types";
+import { Coordinate } from "~/types";
 import { useContractSummaryQuery } from "~/hooks";
+import { Main } from "~/pages";
 
-interface Props {
-  onChange: (fetchType: 'BUILDING' | 'AREA', id: AreaCode | Building) => void
-}
-
-const ContractSummaryMapContainer = ({ onChange }: Props) => {
+const ContractSummaryMapContainer = () => {
+  const mainContext = Main.useContext()
   const DEFAULT_ZOOM_LEVEL = 9
   const DEFAULT_TYPE = 0
   const [ zoomLevel, setZoomLevel ] = useState<number>(DEFAULT_ZOOM_LEVEL)
@@ -42,7 +40,7 @@ const ContractSummaryMapContainer = ({ onChange }: Props) => {
       fetchType = 'BUILDING'
       id = (marker as BuildingMarkerItem).building
     }
-    onChange && onChange(fetchType, id)
+    mainContext.setFetchId(fetchType, id)
   }
 
   const handleBoundsChange = (bounds: { max: Coordinate, min: Coordinate }) => {

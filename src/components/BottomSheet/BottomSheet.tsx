@@ -3,21 +3,25 @@ import styled from "styled-components";
 import { useTouch } from "~/hooks/state";
 import { DragAction } from "~/constants";
 import useClickOutsideOfElement from "../../hooks/state/useClickOutsideOfElement";
+import { isMobile } from "react-device-detect";
 
 const Styles = {
   BottomSheet: styled.div<{
+    width: string
     height: string
   }>`
     position: absolute;
-    width: 100vw;
+    width: ${({ width }) => width};
     right: 0;
+    left: 0;
     bottom: ${({ height }) => height === '0px' ? `-100px` : 0};
     background: white;
     box-sizing: border-box;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 1px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 0 4px 2px #c8c8c8;
     border-top-width: 2px;
+    margin: 0 auto;
     border-bottom-width: 0;
     transition: all .3s ease;
     height: ${({ height }) => height ? height : '0px'};
@@ -56,9 +60,10 @@ interface Props {
   children: ReactNode
   onModeChange: (mode: BottomSheetMode) => void
   defaultMode: BottomSheetMode
+  onClickOutside?: () => void
 }
 
-const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
+const BottomSheet = ({ children, onModeChange, defaultMode, onClickOutside }: Props) => {
   const bottomSheetRef = useRef<HTMLDivElement>(null)
   const ref = useRef<HTMLElement>(null)
   const [ mode, setMode ] = useState(BottomSheetMode.HIDE)
@@ -66,7 +71,10 @@ const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
 
   useClickOutsideOfElement({
     ref: bottomSheetRef,
-    onClick: () => setMode(BottomSheetMode.HIDE),
+    onClick: () => {
+      setMode(BottomSheetMode.HIDE)
+      onClickOutside && onClickOutside()
+    },
   })
 
   useEffect(() => {
@@ -98,6 +106,7 @@ const BottomSheet = ({ children, onModeChange, defaultMode }: Props) => {
   return (
     <Styles.BottomSheet
       ref={bottomSheetRef}
+      width={isMobile ? '100vw' : '500px'}
       height={Styles.height[mode]}>
       <Styles.Holder ref={ref}>
         <Styles.HolderButton />

@@ -1,6 +1,6 @@
 import './App.scss';
 import React from "react"
-import Main from "./pages/Main";
+import { Main } from "~/pages";
 
 function App() {
   // const mapElement = useRef(null);
