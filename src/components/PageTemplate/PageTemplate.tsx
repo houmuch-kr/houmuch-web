@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const Styles = {
   PageTemplate: styled.section<{
-    overflow?: string
+    overflow?: string;
+    height?: string
   }>`
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: ${({ height }) => height};
     overflow: ${({ overflow }) => overflow ? overflow : "auto"}
   `
 }
@@ -18,8 +19,15 @@ interface Props {
 }
 
 const PageTemplate = ({ children, overflow }: Props) => {
+  const [ height, setHeight ] = useState("100vh")
+
+  useEffect(() => {
+    const { innerHeight } = window;
+    setHeight(`${innerHeight}px`)
+  }, [])
+
   return (
-    <Styles.PageTemplate overflow={overflow}>{ children }</Styles.PageTemplate>
+    <Styles.PageTemplate overflow={overflow} height={height}>{ children }</Styles.PageTemplate>
   )
 }
 

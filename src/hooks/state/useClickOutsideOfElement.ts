@@ -1,4 +1,5 @@
 import { RefObject, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 interface Props<T> {
   ref: RefObject<T>
@@ -13,9 +14,10 @@ const useClickOutsideOfElement = <T extends HTMLElement>({ ref, onClick }: Props
         onClick && onClick()
       }
     }
-    addEventListener('mousedown', handleClickOutside, true);
+    const type = isMobile ? 'touchstart' : 'mousedown'
+    addEventListener(type, handleClickOutside, true);
     return () => {
-      removeEventListener('mousedown', handleClickOutside, true);
+      removeEventListener(type, handleClickOutside, true);
     }
   }, [ onClick, ref ])
 }

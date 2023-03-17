@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="611fc69b-3ad1-4f13-b6d8-b08111a7dac5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/dist/images/hospital.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/hospital/HospitalListContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/hospital/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/MapControl.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/StyleUtil.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map/Map.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/Map.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomSheet/BottomSheet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Map/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/Map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/contract/ContractSummaryContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contract/ContractSummaryContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/query/hospital.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/query/hospital.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/api/hospital.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/hospital.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ContractSummaryMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ContractSummaryMap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageTemplate/PageTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageTemplate/PageTemplate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/state/useClickOutsideOfElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/state/useClickOutsideOfElement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/presenters/contract/ContractSummaryPresenter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenters/contract/ContractSummaryPresenter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +155,7 @@
       <workItem from="1678431042322" duration="83000" />
       <workItem from="1678431143123" duration="676000" />
       <workItem from="1678431865921" duration="1411000" />
-      <workItem from="1678758970606" duration="41533000" />
+      <workItem from="1678758970606" duration="56600000" />
     </task>
     <servers />
   </component>

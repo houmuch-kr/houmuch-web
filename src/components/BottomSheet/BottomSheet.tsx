@@ -28,25 +28,25 @@ const Styles = {
   `,
   Holder: styled.span`
     width: 100%;
-    height: 15px;
+    height: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 5px;
   `,
   HolderButton: styled.span`
     background-color: black;
-    height: 6px;
+    height: 7.5px;
     width: 50px;
     border-radius: 20px;
   `,
   Content: styled.section`
-    height: calc(100% - 15px);
+    height: calc(100% - 30px);
     overflow-y: auto;
   `,
   height: {
     HIDE: '0px',
     SIMPLE: '130px',
-    DETAIL: '95vh'
+    DETAIL: '95%'
   }
 }
 

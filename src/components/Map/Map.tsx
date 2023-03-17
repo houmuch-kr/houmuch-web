@@ -9,6 +9,8 @@ import {
 } from 'react-naver-maps'
 import { AreaCode, Building, Coordinate } from "~/types";
 import "./Map.scss"
+import { setMapControl } from "~/components/Map/MapControl";
+import { getBrowserHeight } from "~/utils";
 
 export interface MarkerItem {
   coordinate: Coordinate,
@@ -67,8 +69,34 @@ const Map = ({ defaultZoomLevel, onZoomChange, children }: Props) => {
     }
   }
 
-  const handleInit = (e: any, { bounds }: naver.maps.MapOptions) => {
+  const handleInit = (e: any, map: naver.maps.MapOptions) => {
+    const { bounds } = map
     setBoundsCoords(convertBounds(bounds as naver.maps.Bounds))
+    const mapContext = map as naver.maps.Map
+    setMapControl({
+      map: map as naver.maps.Map,
+      icon: 'add',
+      position: {
+        top: `calc(${getBrowserHeight()} / 2 - 36px)`,
+        bottom: 0,
+        right: '10px'
+      },
+      onClick: () => {
+        mapContext.setZoom(mapContext.getZoom() + 1, true)
+      }
+    })
+    setMapControl({
+      map: map as naver.maps.Map,
+      icon: 'remove',
+      position: {
+        top: `calc(${getBrowserHeight()} / 2)`,
+        bottom: 0,
+        right: '10px'
+      },
+      onClick: () => {
+        mapContext.setZoom(mapContext.getZoom() - 1, true)
+      }
+    })
   }
 
   const handleIdle = (e: any, { bounds }: naver.maps.MapOptions) => {
@@ -86,6 +114,9 @@ const Map = ({ defaultZoomLevel, onZoomChange, children }: Props) => {
           className={'map'}
           style={{ width: '100%', height: '100%', borderTop: 'transparent' }}>
           <NaverMap
+            scaleControl={false}
+            logoControl={false}
+            mapDataControl={false}
             onZoomChanged={handleZoomChange}
             onBoundsChanged={handleBoundsChange}
             defaultCenter={{ lat: 37.5666103, lng: 126.9783882 }}

@@ -12,7 +12,8 @@ const Section = styled.div`
   & > .title {
     font-weight: bold;
     font-size: 1.15rem;
-    padding: .5rem 0;
+    padding: 0;
+    padding-bottom: 7.5px;
   }
   
   & > div {
@@ -40,7 +41,7 @@ const ContractSummaryPresenter = ({ isLoading, children }: Props) => {
   if (isLoading) {
     return (
       <Section>
-        <Loader />
+        <Loader margin={".75rem 0"} />
       </Section>
     )
   }
