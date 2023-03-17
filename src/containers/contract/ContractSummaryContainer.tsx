@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContractSummaryQuery } from "~/hooks";
-import { AreaMarkerItem, BuildingMarkerItem, Map, MarkerItem } from "~/components";
+import { AreaMarkerItem, BuildingMarkerItem, Map, SummaryMarkerItem } from "~/components";
 import { Main } from "~/pages";
 import Loader from "../../components/Loader";
 
@@ -28,7 +28,7 @@ const ContractSummaryContainer = () => {
     setType(type)
   }, [ zoomLevel ])
 
-  const handleMarkerClick = (marker: MarkerItem) => {
+  const handleMarkerClick = (marker: SummaryMarkerItem) => {
     if (Object.hasOwn(marker, 'areaCode')) {
       mainContext.setFetchId('AREA', (marker as AreaMarkerItem).areaCode)
     } else {

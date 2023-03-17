@@ -11,15 +11,21 @@ import { AreaCode, Building, Coordinate } from "~/types";
 import "./Map.scss"
 
 export interface MarkerItem {
+  coordinate: Coordinate,
+  icon: string
+  key?: string
+}
+
+export interface SummaryMarkerItem {
   price: number
   count: number
 }
 
-export interface AreaMarkerItem extends MarkerItem {
+export interface AreaMarkerItem extends SummaryMarkerItem {
   areaCode: AreaCode
 }
 
-export interface BuildingMarkerItem extends MarkerItem {
+export interface BuildingMarkerItem extends SummaryMarkerItem {
   building: Building
 }
 
@@ -28,7 +34,7 @@ interface Props {
   markerItems?: Array<AreaMarkerItem | BuildingMarkerItem>
   onZoomChange?: (zoom: number) => void
   onBoundsChange?: (bounds: { max: Coordinate, min: Coordinate }) => void
-  onMarkerClick?: (marker: MarkerItem) => void
+  onMarkerClick?: (marker: SummaryMarkerItem) => void
   children?: ReactNode
 }
 
@@ -123,18 +129,19 @@ Map.BuildingMarkers = ({ markerItems, onMarkerClick }: {
       {
         markerItems.map(item => {
           const { price, count } = item
-          const { latitude, longitude } = item.building.coordinate
+          const { name, coordinate } = item.building
+          const { latitude, longitude } = coordinate
           return (
             <Marker
-              key={`${item.building.id}`}
               position={new window.naver.maps.LatLng({ lat: latitude, lng: longitude })}
-              title={item.building.name}
               onClick={handleMarkerClick(item)}
+              zIndex={10000}
               icon={{
                 content: count !== 0 ? `
                   <div class="marker building">
-                    <div class="markerLabel price" style="width: 100%; text-align: center; font-size: 13px; margin-bottom: 5px; font-weight: 500">${(price / 10000).toFixed(1)}억</div>
-                    <div class="markerLabel count" style="width: 100%; text-align: center; font-size: 11px">${count.toLocaleString()}건</div>
+                    <div class="markerLabel title">${name}</div>
+                    <div class="markerLabel price">${(price / 10000).toFixed(1)}억</div>
+                    <div class="markerLabel count">${count.toLocaleString()}건</div>
                   </div>
                 ` : ``
               }}
@@ -161,10 +168,9 @@ Map.AreaMarkers = ({ markerItems, onMarkerClick }: {
           const { latitude, longitude } = item.areaCode.coordinate
           return (
             <Marker
-              key={item.areaCode.address}
               position={new window.naver.maps.LatLng({ lat: latitude, lng: longitude })}
-              title={item.areaCode.address}
               onClick={handleMarkerClick(item)}
+              zIndex={10000}
               icon={{
                 content: count !== 0 ? `
                   <div class="marker area">
@@ -175,6 +181,38 @@ Map.AreaMarkers = ({ markerItems, onMarkerClick }: {
                 ` : `
                   <div class="marker area empty">
                     <div style="width: 100%; text-align: center; font-size: 11px;">${item.areaCode.shortAddress}</div>
+                  </div>
+                `
+              }}
+            />
+          )
+        })
+      }
+    </>
+  )
+}
+
+Map.Markers = ({ markerItems, onMarkerClick }: {
+  markerItems: Array<MarkerItem>
+  onMarkerClick?: (markerItem: MarkerItem) => void
+}) => {
+  const handleMarkerClick = (markerItem: MarkerItem) => () => {
+    onMarkerClick && onMarkerClick(markerItem)
+  }
+  return (
+    <>
+      {
+        markerItems.map(item => {
+          const { icon } = item
+          const { latitude, longitude } = item.coordinate
+          return (
+            <Marker
+              position={new window.naver.maps.LatLng({ lat: latitude, lng: longitude })}
+              onClick={handleMarkerClick(item)}
+              icon={{
+                content: `
+                  <div class="marker icon">
+                    <img class="markerIcon" src="${icon}" alt="아이콘" />
                   </div>
                 `
               }}

@@ -1,10 +1,10 @@
 import { defaultApiClient } from "~/lib/api";
-import { ApiResponse, ContractSummary, Coordinate } from "~/types";
+import { ApiResponse, Coordinate, Hospital } from "~/types";
 
 export const fetchHospitalList = (params: {
   max?: Coordinate
   min?: Coordinate
-}) => async(): Promise<ApiResponse<Array<ContractSummary>>> => {
+}) => async(): Promise<ApiResponse<Array<Hospital>>> => {
   return defaultApiClient.get(`/v1/hospital`, {
     params: {
       maxLatitude: params.max?.latitude,
